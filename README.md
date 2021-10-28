@@ -57,18 +57,18 @@ On OS X 10.11 and earlier, download and deploy an unsigned package from the [Rel
 
 # Uninstall
 
-To fully uninstall `bigsurblocker`, run the following (as root or with sudo):
+To fully uninstall `montereyblocker`, run the following (as root or with sudo), or deploy `montereyblocker-remove.sh`:
 
 ```
 current_user_uid=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/UID :/ && ! /loginwindow/ { print $3 }' )
 
-launchd_item_path="/Library/LaunchAgents/com.hjuutilainen.bigsurblocker.plist"
+launchd_item_path="/Library/LaunchAgents/dk.envo-it.montereyblocker.plist"
 launchctl bootout gui/${current_user_uid} "${launchd_item_path}"
 
-rm -f /Library/LaunchAgents/com.hjuutilainen.bigsurblocker.plist
-rm -f /usr/local/bin/bigsurblocker
+rm -f /Library/LaunchAgents/dk.envo-it.montereyblocker.plist
+rm -f /usr/local/bin/montereyblocker
 
-pkgutil --forget com.hjuutilainen.bigsurblocker
+pkgutil --forget dk.envo-it.montereyblocker
 ```
 
 # License
